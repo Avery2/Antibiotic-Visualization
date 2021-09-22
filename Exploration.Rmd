@@ -1,0 +1,21 @@
+---
+title: "Exporation"
+author: "Avery Chan"
+date: "9/22/2021"
+output:
+  html_document:
+    df_print: paged
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+theme_set(theme_bw())
+```
+
+```{r}
+antibio <- read_csv("antibiotics_data.csv", col_types = cols())
+antibio
+```
+
