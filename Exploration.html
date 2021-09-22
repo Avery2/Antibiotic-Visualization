@@ -1697,12 +1697,47 @@ pre code {
 </div>
 
 
+<blockquote>
+<p>After the World War II, antibiotics were considered as “wonder drugs”, since they were an easy remedy for what had been intractable ailments. <strong>To learn which drug worked most effectively for which bacterial infection</strong>, performance of the <strong>three most popular antibiotics</strong> on <strong>16 bacteria</strong> were gathered.</p>
+<p>The values in the table represent the <strong>minimum inhibitory concentration (MIC), a measure of the effectiveness of the antibiotic</strong>, which represents the concentration of antibiotic required to prevent growth in vitro. The reaction of the bacteria to Gram staining is described by the covariate “gram staining”. Bacteria that are stained dark blue or violet are Gram-positive. Otherwise, they are Gram-negative.</p>
+</blockquote>
+<div id="variables" class="section level2">
+<h2>Variables</h2>
+<p>Key: (Variable Type = Count (if applicable)) ~ Proposed Encoding</p>
+<ul>
+<li>Bacteria (N=16) ~ Color, Position</li>
+<li>Antibiotic (N=3) ~ Color, Position</li>
+<li>MIC (Q) ~ Position, Length (May need to log scale)</li>
+<li>Gram Staining (N/O) ~ Shape, Color</li>
+</ul>
 <pre class="r"><code>antibio &lt;- read_csv(&quot;antibiotics_data.csv&quot;, col_types = cols())
 antibio</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["Bacteria"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Penicilin"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Streptomycin"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Neomycin"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Gram Staining"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"Aerobacter aerogenes","2":"870.000","3":"1.00","4":"1.600","5":"negative"},{"1":"Brucella abortus","2":"1.000","3":"2.00","4":"0.020","5":"negative"},{"1":"Brucella anthracis","2":"0.001","3":"0.01","4":"0.007","5":"positive"},{"1":"Diplococcus pneumoniae","2":"0.005","3":"11.00","4":"10.000","5":"positive"},{"1":"Escherichia coli","2":"100.000","3":"0.40","4":"0.100","5":"negative"},{"1":"Klebsiella pneumoniae","2":"850.000","3":"1.20","4":"1.000","5":"negative"},{"1":"Mycobacterium tuberculosis","2":"800.000","3":"5.00","4":"2.000","5":"negative"},{"1":"Proteus vulgaris","2":"3.000","3":"0.10","4":"0.100","5":"negative"},{"1":"Pseudomonas aeruginosa","2":"850.000","3":"2.00","4":"0.400","5":"negative"},{"1":"Salmonella (Eberthella) typhosa","2":"1.000","3":"0.40","4":"0.008","5":"negative"},{"1":"Salmonella schottmuelleri","2":"10.000","3":"0.80","4":"0.090","5":"negative"},{"1":"Staphylococcus albus","2":"0.007","3":"0.10","4":"0.001","5":"positive"},{"1":"Staphylococcus aureus","2":"0.030","3":"0.03","4":"0.001","5":"positive"},{"1":"Streptococcus fecalis","2":"1.000","3":"1.00","4":"0.100","5":"positive"},{"1":"Streptococcus hemolyticus","2":"0.001","3":"14.00","4":"10.000","5":"positive"},{"1":"Streptococcus viridans","2":"0.005","3":"10.00","4":"40.000","5":"positive"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<pre class="r"><code>antibio %&gt;% summary()</code></pre>
+<pre><code>##    Bacteria           Penicilin         Streptomycin       Neomycin     
+##  Length:16          Min.   :  0.0010   Min.   : 0.010   Min.   : 0.001  
+##  Class :character   1st Qu.:  0.0065   1st Qu.: 0.325   1st Qu.: 0.017  
+##  Mode  :character   Median :  1.0000   Median : 1.000   Median : 0.100  
+##                     Mean   :217.8781   Mean   : 3.065   Mean   : 4.089  
+##                     3rd Qu.:275.0000   3rd Qu.: 2.750   3rd Qu.: 1.700  
+##                     Max.   :870.0000   Max.   :14.000   Max.   :40.000  
+##  Gram Staining     
+##  Length:16         
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## </code></pre>
+<p>Each row is a unique bacteria:</p>
+<pre class="r"><code>antibio$Bacteria %&gt;% length() == antibio$Bacteria %&gt;% unique() %&gt;% length()</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 
 

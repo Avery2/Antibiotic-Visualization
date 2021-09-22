@@ -14,8 +14,34 @@ library(tidyverse)
 theme_set(theme_bw())
 ```
 
+> After the World War II, antibiotics were considered as "wonder drugs", since they were an easy remedy for what had been intractable ailments. **To learn which drug worked most effectively for which bacterial infection**, performance of the **three most popular antibiotics** on **16 bacteria** were gathered. 
+> 
+> The values in the table represent the **minimum inhibitory concentration (MIC), a measure of the effectiveness of the antibiotic**, which represents the concentration of antibiotic required to prevent growth in vitro. The reaction of the bacteria to Gram staining is described by the covariate “gram staining”. Bacteria that are stained dark blue or violet are Gram-positive. Otherwise, they are Gram-negative.
+
+## Variables
+
+Key: (Variable Type = Count (if applicable)) ~ Proposed Encoding
+
+ * Bacteria (N=16) ~ Color, Position
+ * Antibiotic (N=3) ~ Color, Position
+ * MIC (Q) ~ Position, Length (May need to log scale)
+ * Gram Staining (N/O) ~ Shape, Color
+
 ```{r}
 antibio <- read_csv("antibiotics_data.csv", col_types = cols())
 antibio
+```
+
+## Summary
+
+```{r}
+antibio %>% summary()
+```
+
+
+Each row is a unique bacteria:
+
+```{r}
+antibio$Bacteria %>% length() == antibio$Bacteria %>% unique() %>% length()
 ```
 
