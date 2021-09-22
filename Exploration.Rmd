@@ -29,7 +29,10 @@ Key: (Variable Type = Count (if applicable)) ~ Proposed Encoding
 
 ```{r}
 antibio <- read_csv("antibiotics_data.csv", col_types = cols())
-antibio
+pivot_antibio <- antibio %>%
+  pivot_longer(cols = Penicilin:Neomycin, names_to = "Antibiotic", values_to="MIC")
+pivot_antibio
+write_csv(pivot_antibio, "antibiotics_data_pivoted.csv")
 ```
 
 ## Summary
