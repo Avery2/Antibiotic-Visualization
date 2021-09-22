@@ -11,6 +11,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(ggplot2)
+library(ggprism)
 theme_set(theme_bw())
 ```
 
@@ -47,4 +49,61 @@ Each row is a unique bacteria:
 ```{r}
 antibio$Bacteria %>% length() == antibio$Bacteria %>% unique() %>% length()
 ```
+
+
+```{r}
+pivot_antibio %>% 
+  group_by(Antibiotic) %>% 
+  summarise(sum(MIC))
+
+# pivot_antibio %>% glimpse()
+
+pivot_antibio %>%
+  # ggplot(aes(MIC, Bacteria, fill=`Gram-Staining`)) +
+  # ggplot(aes(Bacteria, MIC, color=`Gram-Staining`)) +
+  ggplot(aes(Bacteria, MIC, shape=`Bacteria`, color=`Gram-Staining`)) +
+  # scale_x_continuous(trans='log') +
+  scale_y_continuous(trans='log') +
+  # scale_x_continuous(trans='log', limits = c(-0.1, 5000)) +
+  # scale_x_continuous(trans='log',expand = c(0, 0), limits = c(-0.1, NA)) +
+  # geom_col() +
+  # scale_shape_prism(palette = "complete") +
+  scale_shape_manual(values=1:16) +
+  geom_point() +
+  theme(axis.ticks = element_blank(), axis.text.x = element_blank()) +
+  facet_wrap(~Antibiotic) +
+  ylab("Minimum Inhibitory Concentration (MIC)") +
+  xlab("")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
