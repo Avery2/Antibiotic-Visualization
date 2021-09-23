@@ -52,5 +52,7 @@ Lastly, I realized the original choice I made in the beginning to encode `Bacter
   <p>Adding symbols to encode bacteria and a secondary lookup table for bacteria-based queries</p>
 </div>
 
+[View the final visualization here!](http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf)
+
 ## Analysis
 
