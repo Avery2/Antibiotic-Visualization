@@ -47,7 +47,6 @@ antibio <- raw_antibio %>%
 ```
 
 ```{r}
-
 pivot_antibio <- antibio %>%
   pivot_longer(cols = Penicilin:Neomycin, names_to = "Antibiotic", values_to="MIC")
 pivot_antibio
@@ -106,10 +105,26 @@ pivot_scored_antibio <- pivot_scored_antibio %>%
                MIC,
                relative_score,
                relative_score_term)
+```
 
-pivot_antibio %>%
+
+```{r}
+pivot_scored_antibio <- pivot_scored_antibio %>%
   group_by(Antibiotic) %>%
-  summarise(n())
+  mutate(
+    n_best = sum(relative_score == 1),
+    n_mid = sum(relative_score == 2),
+    n_worst = sum(relative_score == 3)
+  ) %>% ungroup()
+
+rel_counts <- pivot_scored_antibio %>%
+  group_by(Antibiotic) %>%
+  summarise(
+    n_best = sum(relative_score == 1)/16,
+    n_mid = sum(relative_score == 2)/16,
+    n_worst = sum(relative_score == 3)/16
+  )
+rel_counts
 ```
 
 ```{r}
