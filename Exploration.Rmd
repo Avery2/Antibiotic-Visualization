@@ -94,12 +94,18 @@ pivot_scored_antibio <- pivot_scored_antibio %>%
       Antibiotic == Bottom_Antibiotic_Name ~ 3,
       Antibiotic == Mid_Antibiotic_Name ~ 2,
       Antibiotic == Top_Antibiotic_Name ~ 1
+    ),
+    relative_score_term = case_when(
+      Antibiotic == Bottom_Antibiotic_Name ~ "Worst",
+      Antibiotic == Mid_Antibiotic_Name ~ "Middle",
+      Antibiotic == Top_Antibiotic_Name ~ "Best"
     )
   ) %>% select(Bacteria,
                `Gram-Staining`,
                Antibiotic,
                MIC,
-               relative_score)
+               relative_score,
+               relative_score_term)
 
 pivot_antibio %>%
   group_by(Antibiotic) %>%
