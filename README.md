@@ -10,7 +10,7 @@ Creation of a static (i.e., single image) visualization that effectively communi
 
 ## Journey
 
-I started with just building some context for the data. I aimed to visualize "how effective are these antibiotics." After a quick google search I learned a low MIC value means the antibiotic was more effective, and that was enough context for the data to get going.
+I started with just building some context for the data. I aimed to visualize "how effective are these antibiotics." After a quick google search I learned a low minimum inhibitory concentration (MIC) value means the antibiotic was more effective, and that was enough context for the data to get going.
 
 I started explore the data in R. I was able to get a few summarise of the data. But a lot of the heavy lifting happened here, I needed to pivot the data so that I could facet it by `Antibiotic` and `Bacteria`. Once I got this done and did some fiddling with a faceted dot plot, I had a rough idea that I wanted to encode the `Bacteria` by `MIC` value faceted by `Antibiotic`. This new graph would aim to communciate which antibiotic was generally (across the 16 bacteria) more effective.
 
