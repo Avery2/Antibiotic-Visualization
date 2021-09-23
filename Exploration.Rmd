@@ -20,6 +20,8 @@ theme_set(theme_bw())
 > 
 > The values in the table represent the **minimum inhibitory concentration (MIC), a measure of the effectiveness of the antibiotic**, which represents the concentration of antibiotic required to prevent growth in vitro. The reaction of the bacteria to Gram staining is described by the covariate “gram staining”. Bacteria that are stained dark blue or violet are Gram-positive. Otherwise, they are Gram-negative.
 
+> A lower MIC value indicates that less drug is required for inhibiting growth of the organism; therefore, **drugs with lower MIC scores are more effective antimicrobial agents.**
+
 ## Variables
 
 Key: (Variable Type = Count (if applicable)) ~ Proposed Encoding
@@ -30,11 +32,83 @@ Key: (Variable Type = Count (if applicable)) ~ Proposed Encoding
  * Gram Staining (N/O) ~ Shape, Color
 
 ```{r}
-antibio <- read_csv("antibiotics_data.csv", col_types = cols())
+raw_antibio <- read_csv("antibiotics_data.csv", col_types = cols())
+
+antibio <- raw_antibio %>% 
+  group_by(Bacteria) %>% 
+  mutate(
+    TA_num = across(c(Penicilin, Streptomycin, Neomycin)) %>% max.col(),
+    Top_Antibiotic_Name = case_when(
+      TA_num == 1 ~ 'Penicilin',
+      TA_num == 2 ~ 'Streptomycin',
+      TA_num == 3 ~ 'Neomycin'
+    )
+  )
+```
+
+```{r}
+
 pivot_antibio <- antibio %>%
   pivot_longer(cols = Penicilin:Neomycin, names_to = "Antibiotic", values_to="MIC")
 pivot_antibio
-write_csv(pivot_antibio, "antibiotics_data_pivoted.csv")
+
+# want per antibiotic row -> Y/n top; Place relative to others
+# right now it's WHICH is the top, but I want it encoded relative to the antibiotic in that row
+
+# pivot_antibio
+# antibio
+
+min.col <- function(m, ...)
+  max.col(-m, ...)
+
+scored_antibio <- raw_antibio %>%
+  group_by(Bacteria) %>%
+  mutate(
+    TA_num_max = across(c(Penicilin, Streptomycin, Neomycin)) %>% max.col(),
+    TA_num_min = across(c(Penicilin, Streptomycin, Neomycin)) %>% min.col(),
+    Top_Antibiotic_Name = case_when(
+      TA_num_max == 1 ~ 'Penicilin',
+      TA_num_max == 2 ~ 'Streptomycin',
+      TA_num_max == 3 ~ 'Neomycin'
+    ),
+    Bottom_Antibiotic_Name = case_when(
+      TA_num_min == 1 ~ 'Penicilin',
+      TA_num_min == 2 ~ 'Streptomycin',
+      TA_num_min == 3 ~ 'Neomycin'
+    ),
+    Mid_Antibiotic_Name = case_when(
+      TA_num_max != 1 & TA_num_min != 1 ~ 'Penicilin',
+      TA_num_max != 2 & TA_num_min != 2 ~ 'Streptomycin',
+      TA_num_max != 3 & TA_num_min != 3 ~ 'Neomycin'
+    )
+  )
+
+pivot_scored_antibio <- scored_antibio %>%
+  pivot_longer(cols = Penicilin:Neomycin,
+               names_to = "Antibiotic",
+               values_to = "MIC")
+
+pivot_scored_antibio <- pivot_scored_antibio %>%
+  mutate(
+    relative_score = case_when(
+      Antibiotic == Bottom_Antibiotic_Name ~ 3,
+      Antibiotic == Mid_Antibiotic_Name ~ 2,
+      Antibiotic == Top_Antibiotic_Name ~ 1
+    )
+  ) %>% select(Bacteria,
+               `Gram-Staining`,
+               Antibiotic,
+               MIC,
+               relative_score)
+
+pivot_antibio %>%
+  group_by(Antibiotic) %>%
+  summarise(n())
+```
+
+```{r}
+# write_csv(pivot_antibio, "antibiotics_data_pivoted.csv")
+write_csv(pivot_scored_antibio, "antibiotics_data_pivoted.csv")
 ```
 
 ## Summary
@@ -52,26 +126,63 @@ antibio$Bacteria %>% length() == antibio$Bacteria %>% unique() %>% length()
 
 
 ```{r}
-pivot_antibio %>% 
-  group_by(Antibiotic) %>% 
-  summarise(sum(MIC))
+# trying to rank the antibiotic for each bacteria
+# pivot_antibio %>%
+#   group_by(Bacteria, Antibiotic) %>%
+#   summarise(
+#     MIC,
+#     max.col()
+#   )
 
+# pivot_antibio %>%
+#   group_by(Bacteria) %>%
+#   summarise(
+#     MIC
+#   )
+```
+
+
+```{r}
+# antibio %>% 
+#   mutate(
+#     best = max.col(Penicilin, Streptomycin, Neomycin)
+#   )
+
+# pivot_antibio
+# antibio %>% 
+#   group_by(Bacteria) %>% 
+#   summarise(
+#     Bacteria,
+#     Penicilin, Streptomycin, Neomycin,
+#     max(Penicilin, Streptomycin, Neomycin)
+#   )
+
+# antibio %>% 
+#   mutate(
+#     BestAntibiotic = case_when(
+#       
+#     )
+#   )
+```
+
+
+```{r}
 # pivot_antibio %>% glimpse()
 
 pivot_antibio %>%
   # ggplot(aes(MIC, Bacteria, fill=`Gram-Staining`)) +
   # ggplot(aes(Bacteria, MIC, color=`Gram-Staining`)) +
-  ggplot(aes(Bacteria, MIC, shape=`Bacteria`, color=`Gram-Staining`)) +
+  ggplot(aes(Bacteria, MIC, shape = `Bacteria`, color = `Gram-Staining`)) +
   # scale_x_continuous(trans='log') +
-  scale_y_continuous(trans='log') +
+  scale_y_continuous(trans = 'log') +
   # scale_x_continuous(trans='log', limits = c(-0.1, 5000)) +
   # scale_x_continuous(trans='log',expand = c(0, 0), limits = c(-0.1, NA)) +
   # geom_col() +
   # scale_shape_prism(palette = "complete") +
-  scale_shape_manual(values=1:16) +
+  scale_shape_manual(values = 1:16) +
   geom_point() +
   theme(axis.ticks = element_blank(), axis.text.x = element_blank()) +
-  facet_wrap(~Antibiotic) +
+  facet_wrap( ~ Antibiotic) +
   ylab("Minimum Inhibitory Concentration (MIC)") +
   xlab("")
 ```
