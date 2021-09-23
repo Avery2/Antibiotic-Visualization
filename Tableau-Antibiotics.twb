@@ -645,7 +645,7 @@
             <zone fixed-size='218' h='99714' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='18957' x='80956' y='143'>
               <zone forceUpdate='true' h='23000' id='11' type-v2='text' w='18957' x='80956' y='143'>
                 <formatted-text>
-                  <run>After the World War II, antibiotics were considered “wonder drugs”, since they were an easy remedy for what had been intractable ailments. To learn which drug worked most effectively for which bacterial infection, performance of the three most popular antibiotics on 16 bacteria were gathered.</run>
+                  <run>After World War II, antibiotics were considered “wonder drugs”, since they were an easy remedy for what had been intractable ailments. To learn which drug worked most effectively for which bacterial infection, the performance of the three most popular antibiotics on 16 bacteria were gathered.</run>
                 </formatted-text>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
@@ -665,7 +665,7 @@
               </zone>
               <zone forceUpdate='true' h='13286' id='12' type-v2='text' w='18957' x='80956' y='30286'>
                 <formatted-text>
-                  <run>Relative score compares an antibiotic&apos;s performance (MIC) agaist the others. A score of 1 means was the best, while a score of 3 means it was the worst.</run>
+                  <run>Relative score compares an antibiotic&apos;s performance (MIC) against the others. A score of 1 means was the best, while a score of 3 means it was the worst.</run>
                 </formatted-text>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
@@ -706,8 +706,8 @@
           <layout-options export-orientation='landscape' />
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='16' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97714' id='15' param='vert' type-v2='layout-flow' w='98608' x='696' y='1143'>
+            <zone h='100000' id='18' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97714' id='17' param='vert' type-v2='layout-flow' w='98608' x='696' y='1143'>
                 <zone fixed-size='280' h='99714' id='3' is-fixed='true' name='Relative' show-title='false' w='80869' x='87' y='143'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -746,7 +746,7 @@
                 </zone>
                 <zone forceUpdate='true' h='23000' id='11' type-v2='text' w='18957' x='80956' y='143'>
                   <formatted-text>
-                    <run>After the World War II, antibiotics were considered “wonder drugs”, since they were an easy remedy for what had been intractable ailments. To learn which drug worked most effectively for which bacterial infection, performance of the three most popular antibiotics on 16 bacteria were gathered.</run>
+                    <run>After World War II, antibiotics were considered “wonder drugs”, since they were an easy remedy for what had been intractable ailments. To learn which drug worked most effectively for which bacterial infection, the performance of the three most popular antibiotics on 16 bacteria were gathered.</run>
                   </formatted-text>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -759,7 +759,7 @@
                 </zone>
                 <zone forceUpdate='true' h='13286' id='12' type-v2='text' w='18957' x='80956' y='30286'>
                   <formatted-text>
-                    <run>Relative score compares an antibiotic&apos;s performance (MIC) agaist the others. A score of 1 means was the best, while a score of 3 means it was the worst.</run>
+                    <run>Relative score compares an antibiotic&apos;s performance (MIC) against the others. A score of 1 means was the best, while a score of 3 means it was the worst.</run>
                   </formatted-text>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
