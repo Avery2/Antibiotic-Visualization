@@ -43,7 +43,7 @@ At this point there was a lot of information not yet immidiately visible, so I d
 
 I then added a dot plot below the bar chart for `Relative Score`. This was because although `Relative Score` was already encoded in the color of the bar chart, it was difficult to compare the aggregate `Relative Score` for each `Antibiotic`. Positioning encodes this much better, especially since they are sorted by `MIC` and the slight correlation between `MIC` and `Relative Score` led to a clustering effect in the dot plot.
 
-Lastly, I realized the original choice I made in the beginning to encode `Bacteria` faceted by `Antibiotics` on the x-axis meant that it was still really hard to do `Bacteria`-based queries like "What is the best `Antibiotic` for `Bacteria`?" To solve this, I added a table in the bottom right. I added a table to the `Bacteria` symbol legend to aid with this. It's probably a major design sin but luckily I'm not a designer.
+Lastly, I realized the original choice I made in the beginning to encode `Bacteria` faceted by `Antibiotics` on the x-axis meant that it was still really hard to do `Bacteria`-based queries like "What is the best `Antibiotic` for `Bacteria`?" To solve this, I added a table to the `Bacteria` symbol legend to aid with this. It's probably a major design sin but luckily I'm not a designer.
 
 <div align="center">
   <img width="45%" alt="f" src="https://user-images.githubusercontent.com/53503018/134572708-84f7a3ca-82d0-4a47-b0eb-1978adddc3d6.png">
