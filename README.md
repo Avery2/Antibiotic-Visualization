@@ -2,7 +2,7 @@ Creation of a static (i.e., single image) visualization that effectively communi
 
 ## Technology used
 
-* **R** for initial data exploration then data manipulation and variable creation
+* **R** for initial data [exploration](https://www.averychan.site/Visualization-Design/Exploration.html) then data manipulation and variable creation
 * **Tableau** for parallel visualization prototyping and then heavy lifing of design
 * Final touches in **Figma**
 
