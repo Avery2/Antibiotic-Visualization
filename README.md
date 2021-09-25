@@ -1,6 +1,6 @@
 # Visualization Design
 
-Creation of a static (i.e., single image) visualization that effectively communicates antibiotics data. [View it here](http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf).
+Creation of a static (i.e., single image) visualization that effectively communicates [antibiotics data](https://github.com/Avery2/Visualization-Design/blob/main/antibiotics_data.csv). View the final visualization [here](http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf).
 
 ## Technology used
 
@@ -52,7 +52,6 @@ Lastly, I realized the original choice I made to encode `Bacteria` faceted by `A
   <p>Adding symbols to encode bacteria and a secondary lookup table for bacteria-based queries</p>
 </div>
 
-[View the final visualization here!](http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf)
-
 ## Analysis
 
+WIP
