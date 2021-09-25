@@ -1,10 +1,13 @@
-Creation of a static (i.e., single image) visualization that effectively communicates [antibiotics data](https://github.com/Avery2/Visualization-Design/blob/main/antibiotics_data.csv). View the final visualization [here](http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf).
+Creation of a static (i.e., single image) visualization that effectively communicates [antibiotics data](https://github.com/Avery2/Visualization-Design/blob/main/antibiotics_data.csv).
+
+* View the final visualization [here](http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf).
+* View an incomplete but dynamic version [here](https://www.averychan.site/Visualization-Design/dynamic.html).
 
 ## Technology used
 
-* **R** for initial data [exploration](https://www.averychan.site/Visualization-Design/Exploration.html) then data manipulation and variable creation
-* **Tableau** for parallel visualization prototyping and then heavy lifing of design
-* Final touches in **Figma**
+* **R** for initial data [exploration](https://www.averychan.site/Visualization-Design/Exploration.html) then data manipulation and variable creation.
+* **Tableau** for parallel visualization prototyping and then heavy lifing of design.
+* Final touches in **Figma**.
 
 ## Journey
 
