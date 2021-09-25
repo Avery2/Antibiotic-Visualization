@@ -5,7 +5,7 @@ date: "9/22/2021"
 output:
   html_document:
     df_print: paged
-    code_folding: hide
+    code_folding: show
 ---
 
 ```{r setup, include=FALSE}
