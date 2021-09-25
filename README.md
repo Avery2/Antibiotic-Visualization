@@ -41,7 +41,7 @@ After these initial visuals, I noticed that it was still hard to compare the eff
 
 At this point, there was a lot of information not yet immediately visible, so I made a few changes. I changed the y-axis to use symbols because it was hard to read the vertical bacteria names, especially since sorting by MIC shuffled them. I also changed the color scheme because the `Relative Score` is an ordinal variable, so an ordinal color scheme (shades of blue) makes more sense than one that is more suited for nominal variables (stoplight colors).
 
-I then added a dot plot below the bar chart for `Relative Score` since it was difficult to compare the aggregate `Relative Score` for each `Antibiotic`. This dual encodes `Relative Score` with color and position. Positioning encodes this much better, especially since sorting `MIC` led to a clustering effect in the dot plot.
+I then added a dot plot below the bar chart for `Relative Score` since it was difficult to compare the aggregate `Relative Score` for each `Antibiotic`. This dual encodes `Relative Score` with color and position. Positioning encodes this much better, especially since sorting `MIC` led to a slight clustering effect in the dot plot.
 
 Lastly, I realized the original choice I made to encode `Bacteria` faceted by `Antibiotics` on the x-axis meant that it was still really hard to do \`Bacteria\`-based queries like "What is the Best `Antibiotic` for (`Bacteria`)?" To solve this, I added a table to the `Bacteria` symbol legend to aid with this. It's probably a design sin, but luckily I'm not a designer.
 
