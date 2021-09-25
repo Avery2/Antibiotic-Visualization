@@ -50,6 +50,9 @@ Lastly, I realized the original choice I made to encode `Bacteria` faceted by `A
   <img width="45%" alt="addchart" src="https://user-images.githubusercontent.com/53503018/134573801-ae30a384-002a-4960-84dc-24f10ff081a2.png">
   
   <p>Adding symbols to encode bacteria and a secondary lookup table for bacteria-based queries</p>
+  
+  <img width="85%" alt="addcolorchart" src="https://user-images.githubusercontent.com/53503018/134781365-fcf9bc80-915b-4cd1-9d27-5aedff2c858f.png">
+  <p>Final visualization (<a href="http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf">updated version here</a>)</p>
 </div>
 
 ## Analysis
