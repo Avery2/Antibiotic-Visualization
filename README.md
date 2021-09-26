@@ -57,4 +57,19 @@ Lastly, I realized the original choice I made to encode `Bacteria` faceted by `A
 
 ## Analysis
 
-WIP
+With this visual, I attempted to answer two high-level questions: What is the relative effectiveness of each antibiotic in general? What is the comparative effectiveness of each antibiotic for each bacteria?
+
+Contextually I was unsure where Gram Staining fell into the story I was trying to tell, so that data was a lower priority and downplayed.
+I had four separate visualizations that composed my visualization. Three visuals shared an x-axis: A bar chart of the MIC measure, a dot plot of relative MIC variable, and a bar chart of the relative MIC score count. Additionally, there was a table of bacteria that also acted as a legend. I will go through these sequentially.
+
+The first bar chart was the main visual that encoded the raw quantitative data of the MIC measure. On the y-axis with a log scale are the MIC scores (encoded through length). On the x-axis, the data is bacteria faceted by an antibiotic (so it is grouped by antibiotic). I chose to encode the MIC measure in this way because length encodes quantitative data well. The bars are colored according to a variable I created that represents the MIC needed for an antibiotic compared to the others that take a value of [1, 2, 3] or equivalently [Least, Middle, Most]. Lastly, I added lines to show the total and average MIC for each antibiotic and sorted within each antibiotic by MIC score.
+
+The next visualization was a dot plot that encoded the relative MIC variable with positioning on the y axis and shared the x-axis with the first bar chart. The reason for this is because positioning is still a better channel than color to encode the relative MIC variable, and with the sorting, by MIC there was a slight clustering effect that made it easier to see which antibiotic was the most effective (needing the least MIC) for all 16 bacteria. Also encoded here in symbols (checkmark or 'x') is the gram-straining.
+
+Note here that the x-axis bacteria labels are symbols that correspond to a key. This is because the vertical text (that is scrambled due to sorting) was very unreadable. It is non-ideal because the symbols are difficult to read, but it is better than just the words. This could be solved through interactive design with tooltips or swapping the x and y-axis altogether to allow for the text to be vertical (although then the amount of text would still be tripled).
+
+Lastly, there is a less complex bar chart that encodes the counts of the relative MIC variable for each antibiotic. This is to once again encode a variable we want (the count of each relative MIC score per antibiotic) through length and positioning.
+
+The last visual is separate from the rest. It is a table of the bacteria names with three columns that correspond to each antibiotic. There is a symbol in each cell where an antibiotic is the best for a particular bacteria. This table also doubles as a key for the bacteria symbols. I chose to make this table because specific queries like "what antibiotic is best for bacteria X?" were hard to make using the first three visualizations. You would have to decode the bacteria symbol three times spread over the x-axis almost randomly and compare the colors of the corresponding bars. This table fixes that. Because it is part of the key, there is no need to decode a symbol, and the information for which bacteria is best is still there. Additionally, the gram staining information is encoded here for similar reasons.
+
+In aggregate, the first three visuals provide an answer to the first high-level question (What is the relative effectiveness of each antibiotic in general?) by allowing comparisons between the three antibiotics overall. The last visual answers the second high-level question (What is the comparative effectiveness of each antibiotic for each bacteria?) quite directly.
