@@ -1,11 +1,11 @@
-Creation of a static (i.e., single image) visualization that effectively communicates [antibiotics data](https://github.com/Avery2/Visualization-Design/blob/main/antibiotics_data.csv).
+Creation of a static (i.e., single image) visualization that effectively communicates [antibiotics data](https://github.com/Avery2/Antibiotic-Visualization/blob/main/antibiotics_data.csv).
 
-* View the final visualization [here](http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf).
-* View an incomplete but dynamic version [here](https://www.averychan.site/Visualization-Design/dynamic.html).
+* View the final visualization [here](http://www.averychan.site/Antibiotic-Visualization/img/Tableau-Antibiotics.pdf).
+* View an incomplete but dynamic version [here](https://www.averychan.site/Antibiotic-Visualization/dynamic.html).
 
 ## Technology used
 
-* **R** for initial data [exploration](https://www.averychan.site/Visualization-Design/Exploration.html) then data manipulation and variable creation.
+* **R** for initial data [exploration](https://www.averychan.site/Antibiotic-Visualization/Exploration.html) then data manipulation and variable creation.
 * **Tableau** for parallel visualization prototyping and then heavy lifing of design.
 * Final touches in **Figma**.
 
@@ -52,7 +52,7 @@ Lastly, I realized the original choice I made to encode `Bacteria` faceted by `A
   <p>Adding symbols to encode bacteria and a secondary lookup table for bacteria-based queries</p>
   
   <img width="85%" alt="addcolorchart" src="https://user-images.githubusercontent.com/53503018/134781365-fcf9bc80-915b-4cd1-9d27-5aedff2c858f.png">
-  <p>Final visualization (<a href="http://www.averychan.site/Visualization-Design/img/Tableau-Antibiotics.pdf">updated version here</a>)</p>
+  <p>Final visualization (<a href="http://www.averychan.site/Antibiotic-Visualization/img/Tableau-Antibiotics.pdf">updated version here</a>)</p>
 </div>
 
 ## Rationale
