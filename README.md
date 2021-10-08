@@ -1,4 +1,4 @@
-Creation of a static (i.e., single image) visualization that effectively communicates [antibiotics data](https://github.com/Avery2/Antibiotic-Visualization/blob/main/antibiotics_data.csv).
+This is a static visualization that communicates this [antibiotics data](https://github.com/Avery2/Antibiotic-Visualization/blob/main/antibiotics_data.csv).
 
 * View the final visualization [here](http://www.averychan.site/Antibiotic-Visualization/img/Tableau-Antibiotics.pdf).
 * View an incomplete but dynamic version [here](https://www.averychan.site/Antibiotic-Visualization/dynamic.html).
