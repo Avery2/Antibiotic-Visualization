@@ -5,7 +5,7 @@ This is a static visualization that communicates this [antibiotics data](https:/
 
 ## Technology
 
-* **R** for initial data [exploration](https://www.averychan.site/Antibiotic-Visualization/Exploration.html) then data manipulation and variable creation.
+* **R** for [data exploration](https://www.averychan.site/Antibiotic-Visualization/Exploration.html), data manipulation, and variable creation.
 * **Tableau** for parallel visualization prototyping and then heavy lifing of design.
 * Final touches in **Figma**.
 
