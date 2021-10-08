@@ -3,7 +3,7 @@ Creation of a static (i.e., single image) visualization that effectively communi
 * View the final visualization [here](http://www.averychan.site/Antibiotic-Visualization/img/Tableau-Antibiotics.pdf).
 * View an incomplete but dynamic version [here](https://www.averychan.site/Antibiotic-Visualization/dynamic.html).
 
-## Technology used
+## Technology
 
 * **R** for initial data [exploration](https://www.averychan.site/Antibiotic-Visualization/Exploration.html) then data manipulation and variable creation.
 * **Tableau** for parallel visualization prototyping and then heavy lifing of design.
